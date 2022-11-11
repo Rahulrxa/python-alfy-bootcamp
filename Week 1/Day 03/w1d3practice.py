@@ -72,19 +72,19 @@
 
 #  Building a dictionary
 
-# dayConv = {
-#     "Sun": "Sunday",
-#     "Mon": "Day 01",
-#     "Tue": "Day 02",
-#     "Wes": "Day 03",
-#     "Thur": "Day 04",
-#     "Fri": "Friday",
-#     "Sat": "Saturday",
-#     "Sun": "Sunday",
-# }
+dayConv = {
+    "Sun": "Sunday",
+    "Mon": "Day 01",
+    "Tue": "Day 02",
+    "Wes": "Day 03",
+    "Thur": "Day 04",
+    "Fri": "Friday",
+    "Sat": "Saturday",
+    "Sun": "Sunday",
+}
 #
 # print(dayConv)
-# print(dayConv["Sun"])  # returns error if key does not exist
+print(dayConv["Sun"])  # returns error if key does not exist
 # print(dayConv.get("sun"))  # returns None if key does not exist
 
 
