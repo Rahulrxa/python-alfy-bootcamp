@@ -13,6 +13,7 @@ def input_list(str_input=None):
 def monotonicity_by_operator(operator, sequence):
     monolist = []
     for i in range(len(sequence) - 1):
+        # use Dictionaries
         match operator:
             case '<=':
                 if sequence[i] <= sequence[i + 1]:
@@ -34,24 +35,21 @@ def monotonicity_by_operator(operator, sequence):
                     monolist.append(True)
                 else:
                     monolist.append(False)
-    if False in monolist:
-        return False
-    else:
-        return True
+    return False not in monolist
+    # if False in monolist:
+    #     return False
+    # else:
+    #     return True
 
 
 def check_monotonic_sequence(sequence):
-    mu = True
-    msu = True
-    md = True
-    msd = True
+    operators = ['<=', '<', '>=', '>']
+    lst = []
     if len(sequence) < 2:
-        return [mu, msu, md, msd]
-    mu = monotonicity_by_operator('<=', sequence)
-    msu = monotonicity_by_operator('<', sequence)
-    md = monotonicity_by_operator('>=', sequence)
-    msd = monotonicity_by_operator('>', sequence)
-    return [mu, msu, md, msd]
+        return [True, True, True, True]
+    for operator in operators:
+        lst.append(monotonicity_by_operator(operator, sequence))
+    return lst
 
 
 def check_monotonic_sequence_inverse(def_bool):

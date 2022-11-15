@@ -8,7 +8,7 @@
 #######################################################
 
 
-from lists_functions import *
+from lists_functions_exercise import *
 
 ########################
 #         A. 1         #
