@@ -97,7 +97,7 @@ def run_single_game(list_words, score):
             else:
                 show_suggestions(filtered_list)
     if score <= 0:
-        message = "You Lose, the word is: "+word
+        message = "You Lose, the word is: " + word
     elif "_" not in pattern:
         message = "You Won"
     display_state(pattern, wrong_guess_lst, score, message)
@@ -138,14 +138,14 @@ def main():
     while interested:
         score = run_single_game(list_words, initial)
         games_played += 1
-        print("Your have finished the Game!!")
-        print("Games Played: " + str(games_played))
-        print("Current Score: " + str(score))
+        # print("Your have finished the Game!!")
+        # print("Games Played: " + str(games_played))
+        # print("Current Score: " + str(score))
         if score > 0:
-            interested = play_again("Do you want to play another round?")
+            interested = play_again("Total games played: " + str(games_played) + " And Current Score: " + str(score) + " Do you want to play another round?")
             initial = score
         if score == 0:
-            interested = play_again("Do you want to play a new game again?")
+            interested = play_again("Total games played: " + str(games_played) + " And Current Score: " + str(score) + " Do you want to play a new game again?")
             initial = POINTS_INITIAL
             games_played = 0
 
