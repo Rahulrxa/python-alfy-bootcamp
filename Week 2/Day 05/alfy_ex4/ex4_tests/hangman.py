@@ -21,9 +21,6 @@ def update_word_pattern(word, pattern, letter):
     return new_pattern.join(pattern_list)
 
 
-# print(update_word_pattern('apple', '___l_', 'p'))
-
-
 def run_single_game(list_words, score):
     """
     The function receives a list of words and a number of points with which the player starts the game and runs one game
@@ -91,8 +88,8 @@ def run_single_game(list_words, score):
             n = len(filtered_list)
             suggestion_list = []
             if n > HINT_LENGTH:
-                for i in range(HINT_LENGTH - 1):
-                    suggestion_list.append(filtered_list[round((i * n) / HINT_LENGTH)])
+                for i in range(HINT_LENGTH):
+                    suggestion_list.append(filtered_list[(i * n) // HINT_LENGTH])
                 show_suggestions(suggestion_list)
             else:
                 show_suggestions(filtered_list)
@@ -120,6 +117,7 @@ def filter_words_list(words, pattern, wrong_guess_list):
         for j in wrong_guess_list:
             if j in filtered_words[i]:
                 filtered_words[i] = 0
+            # if k in filtered_words[i][]:
     for k in filtered_words:
         if k != 0:
             final_list.append(k)
