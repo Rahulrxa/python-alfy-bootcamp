@@ -40,23 +40,24 @@ def run_single_game(list_words, score):
         display_state(pattern, wrong_guess_lst, score, message)
         user_input = get_input()
         letter = user_input[1]
-        if user_input[0] == LETTER and len(str(letter)) > 1:
-            message = "Incorrect input"
-            guessed_letter_list.append(letter)
-            continue
-        if user_input[0] == LETTER and not letter.isalpha():
-            message = "Incorrect input"
-            guessed_letter_list.append(letter)
-            continue
-        if user_input[0] == LETTER and not letter.islower():
-            message = "Incorrect input"
-            guessed_letter_list.append(letter)
-            continue
-        if user_input[0] == LETTER and letter in guessed_letter_list:
-            message = "Letter already guessed, please guess another letter"
-            guessed_letter_list.append(letter)
-            continue
-        if user_input[0] == LETTER and letter.isalpha() and letter.islower():
+        if user_input[0] == LETTER:
+            if len(str(letter)) > 1:
+                message = "Incorrect input"
+                guessed_letter_list.append(letter)
+                continue
+            if not letter.isalpha():
+                message = "Incorrect input"
+                guessed_letter_list.append(letter)
+                continue
+            if not letter.islower():
+                message = "Incorrect input"
+                guessed_letter_list.append(letter)
+                continue
+            if letter in guessed_letter_list:
+                message = "Letter already guessed, please guess another letter"
+                guessed_letter_list.append(letter)
+                continue
+            # if letter.isalpha() and letter.islower():
             score = score - 1
             if letter not in word:
                 message = "Incorrect Guess! Try Again"
@@ -136,9 +137,6 @@ def main():
     while interested:
         score = run_single_game(list_words, initial)
         games_played += 1
-        # print("Your have finished the Game!!")
-        # print("Games Played: " + str(games_played))
-        # print("Current Score: " + str(score))
         if score > 0:
             interested = play_again("Total games played: " + str(games_played) + " And Current Score: " + str(score) + " Do you want to play another round?")
             initial = score
