@@ -25,7 +25,7 @@ def func(n):
     return j
 
 
-# time complexity of below function is O(log n), because loop is executed log n times
+# time complexity of below function is O((log n)*n), because loop is executed log n times and time complexity of sum is O(n)
 def func(n):
 		total = 0
 		while n > 5:
